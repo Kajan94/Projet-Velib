@@ -4,6 +4,8 @@ Projet d’équipe. À partir d’un instantané des stations, deux cartes perme
 
 ![Carte de Voronoï du réseau Vélib’](docs/voronoi-velib.jpg)
 
+Le projet d’équipe étudiait aussi un scénario de raccordement électrique des stations. L’arbre couvrant minimum relie les stations dans le modèle sans cycle. Les zones de Voronoï aident à lire la proximité géométrique des stations.
+
 ## Explorer les deux cartes
 
 - **Voisinages** — la [carte du réseau](https://kajan94.github.io/Projet-Velib/velib_stations_map.html) relie les stations par triangulation de Delaunay et affiche un arbre couvrant de poids minimal construit avec Kruskal.
@@ -31,4 +33,4 @@ Les deux fichiers JSON dérivés sont déjà fournis. Ils peuvent être régén�
 
 Source de l’instantané du 20 janvier 2025 : [données ouvertes Vélib’ Métropole](https://www.data.gouv.fr/datasets/velib-localisation-et-caracteristique-des-stations). Fond de carte : [contributeurs OpenStreetMap](https://www.openstreetmap.org/copyright).
 
-[Projet dans le portfolio](https://kajan94.github.io/#velib)
+[Projet dans le portfolio](https://kajan94.github.io/Portefolio/#velib)
