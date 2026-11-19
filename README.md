@@ -23,11 +23,21 @@ python analyser_stations.py
 
 ### Régénérer les cartes
 
+Bibliothèques à installer :
+
+- **folium 0.20.0** : cartes interactives.
+- **numpy 2.5.4** : calculs numériques.
+- **scipy 1.18.1** : calculs géométriques.
+
+Depuis un terminal à la racine du dépôt, installer les bibliothèques puis lancer les scripts :
+
 ~~~sh
 python -m pip install -r requirements.txt
 python carte.py
 python carte_voronoi
 ~~~
+
+Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
 
 Les deux fichiers JSON dérivés sont déjà fournis. Ils peuvent être régénérés avec `python code.py` puis `python coordonnés.py`. Les cartes colorent des rapports entre capacité et nombre de voisins géométriques. Cette mesure ne représente pas la fréquentation réelle.
 
