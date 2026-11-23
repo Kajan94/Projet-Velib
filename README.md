@@ -1,35 +1,52 @@
-# Vélib’ · Cartographier et contrôler un réseau de stations
+# Vélib’ · Explorer les stations et modéliser leur raccordement
 
-Projet d’équipe. À partir d’un instantané des stations, deux cartes permettent d’étudier leurs voisinages, leurs capacités et leurs connexions géométriques dans Paris et les communes voisines.
+Ce projet utilise les données des stations Vélib’ de Paris et des communes voisines pour visualiser leur répartition, leurs capacités et leurs liens de voisinage. Les cartes interactives permettent aussi d’explorer un scénario de raccordement électrique des stations à l’aide d’un arbre couvrant minimum.
 
-![Carte de Voronoï du réseau Vélib’](docs/voronoi-velib.jpg)
+## Aperçus du projet
 
-Le projet d’équipe étudiait aussi un scénario de raccordement électrique des stations. L’arbre couvrant minimum relie les stations dans le modèle sans cycle. Les zones de Voronoï aident à lire la proximité géométrique des stations.
+### Réseau de stations
 
-## Explorer les deux cartes
+[![Carte des stations Vélib’ et de leurs liens de voisinage](docs/delaunay-velib.jpg)](docs/delaunay-velib.jpg)
 
-- **Voisinages** — la [carte du réseau](https://kajan94.github.io/Projet-Velib/velib_stations_map.html) relie les stations par triangulation de Delaunay et affiche un arbre couvrant de poids minimal construit avec Kruskal.
-- **Zones de proximité** — la [carte de Voronoï](https://kajan94.github.io/Projet-Velib/velib_stations_voronoi.html) montre les cellules associées aux stations. Les cellules non bornées ne sont pas affichées.
+Les points représentent les stations et les lignes vertes leurs voisinages obtenus par triangulation de Delaunay. Les couleurs des stations correspondent au rapport entre leur capacité et leur nombre de voisines.
 
-Les cartes s’ouvrent dans le navigateur. Les fichiers HTML versionnés permettent aussi une consultation locale. Une connexion Internet charge les bibliothèques et le fond de carte. Le menu des calques permet de comparer les représentations. Les résultats décrivent la géométrie du réseau. L’analyse de la disponibilité en temps réel demanderait d’autres données.
+### Arbre couvrant minimum
 
-## Contrôler l’instantané
+[![Arbre couvrant minimum des stations Vélib’ avec le calque Kruskal activé](docs/arbre-couvrant-velib.jpg)](docs/arbre-couvrant-velib.jpg)
 
-~~~sh
-python analyser_stations.py
-~~~
+Les liaisons noires relient les stations sans former de cycle. Elles sont sélectionnées avec l’algorithme de Kruskal pour étudier le scénario de raccordement du réseau.
 
-[Ce script Python](analyser_stations.py) fonctionne sans dépendance externe. Il signale les identifiants dupliqués, les coordonnées hors limites et les capacités invalides. Pour l’instantané fourni, il affiche **1 473 stations**, **46 036 places** et une **capacité médiane de 29**. Les 11 stations à capacité nulle sont comptées séparément.
+### Zones de proximité
 
-### Régénérer les cartes
+[![Cellules de Voronoï associées aux stations Vélib’](docs/voronoi-velib.jpg)](docs/voronoi-velib.jpg)
 
-Bibliothèques à installer :
+Chaque cellule de Voronoï représente une zone de proximité autour d’une station. Les calques permettent de la comparer avec les stations, les triangles de Delaunay et l’arbre couvrant.
 
-- **folium 0.20.0** : cartes interactives.
-- **numpy 2.5.4** : calculs numériques.
-- **scipy 1.18.1** : calculs géométriques.
+## Lancer en local
 
-Depuis un terminal à la racine du dépôt, installer les bibliothèques puis lancer les scripts :
+[Télécharger le dépôt](https://github.com/Kajan94/Projet-Velib/archive/refs/heads/main.zip), le décompresser, puis ouvrir le dossier contenant `README.md`, les scripts Python et les fichiers JSON.
+
+### Consulter les cartes
+
+Les cartes déjà générées s’ouvrent directement dans le navigateur :
+
+- [Carte du réseau et arbre couvrant](https://kajan94.github.io/Projet-Velib/velib_stations_map.html).
+- [Carte des zones de Voronoï](https://kajan94.github.io/Projet-Velib/velib_stations_voronoi.html).
+
+Après téléchargement, ouvrir les fichiers `velib_stations_map.html` et `velib_stations_voronoi.html` pour les consulter localement. Une connexion Internet charge le fond de carte et les bibliothèques JavaScript. Aucun compte ni serveur de base de données n’est nécessaire.
+
+### Régénérer les cartes avec Python
+
+Préparer **Python 3.12 avec pip**, puis ouvrir un terminal à la racine du dépôt.
+
+Bibliothèques présentes dans `requirements.txt` :
+
+- **Folium 0.20.0** : création des cartes interactives.
+- **NumPy 2.5.4** : manipulation des coordonnées et calculs numériques.
+- **SciPy 1.18.1** : triangulation de Delaunay et diagrammes de Voronoï.
+- **Matplotlib 3.11.2** : affichage de la triangulation avec le script `triangles.py`.
+
+Installer les bibliothèques, puis générer les deux cartes :
 
 ~~~sh
 python -m pip install -r requirements.txt
@@ -37,9 +54,42 @@ python carte.py
 python carte_voronoi
 ~~~
 
-Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
+Les scripts enregistrent les cartes dans les deux fichiers HTML du dépôt. Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
 
-Les deux fichiers JSON dérivés sont déjà fournis. Ils peuvent être régénérés avec `python code.py` puis `python coordonnés.py`. Les cartes colorent des rapports entre capacité et nombre de voisins géométriques. Cette mesure ne représente pas la fréquentation réelle.
+## Fonctionnalités
+
+- **Navigation sur les cartes** : zoomer sur une zone et activer ou masquer les calques pour comparer les représentations du réseau.
+- **Analyse des voisinages** : relier les stations à partir de leurs coordonnées et consulter leurs connexions géométriques.
+- **Scénario de raccordement** : afficher un arbre couvrant minimum reliant les stations du modèle avec un ensemble de liaisons sans cycle.
+- **Zones de proximité** : visualiser les cellules de Voronoï associées aux stations. Les cellules non bornées ne sont pas affichées.
+
+L’arbre est pondéré par les distances géométriques entre les coordonnées des stations. Les couleurs représentent un rapport entre capacité et nombre de voisines ; elles ne mesurent pas la fréquentation réelle.
+
+### Préparer les données
+
+Les fichiers JSON nécessaires aux cartes sont déjà inclus. Pour les reconstruire depuis l’instantané source :
+
+~~~sh
+python code.py
+python coordonnés.py
+~~~
+
+Le premier script extrait les identifiants, noms, capacités et coordonnées des stations. Le second conserve les identifiants et coordonnées utilisés pour les calculs géométriques.
+
+### Analyser les stations
+
+~~~sh
+python analyser_stations.py
+~~~
+
+Ce script utilise uniquement la bibliothèque standard Python. Il vérifie les identifiants, les coordonnées et les capacités, puis affiche les statistiques de l’instantané : **1 473 stations**, **46 036 places** et une **capacité médiane de 29**.
+
+Pour afficher séparément la triangulation ou la liste des stations voisines :
+
+~~~sh
+python triangles.py
+python Liste_adjacence
+~~~
 
 ## Organisation du code
 
@@ -53,7 +103,14 @@ Les deux fichiers JSON dérivés sont déjà fournis. Ils peuvent être régén�
 | `carte_voronoi` | Génération de la carte des cellules de Voronoï et des calques du réseau. |
 | `triangles.py` et `Liste_adjacence` | Scripts d’étude de la triangulation et des voisinages entre stations. |
 | `velib_stations_map.html` et `velib_stations_voronoi.html` | Cartes générées, consultables directement dans le navigateur. |
+| `docs/` | Aperçus des cartes et de l’arbre couvrant. |
 
 Source de l’instantané du 20 janvier 2025 : [données ouvertes Vélib’ Métropole](https://www.data.gouv.fr/datasets/velib-localisation-et-caracteristique-des-stations). Fond de carte : [contributeurs OpenStreetMap](https://www.openstreetmap.org/copyright).
 
 [Projet dans le portfolio](https://kajan94.github.io/Portefolio/#velib)
+
+## Travail en équipe
+
+Projet universitaire réalisé à quatre en **première année de BUT Informatique** à l’IUT de Créteil-Vitry (UPEC), avec **Kajan Arulnathan, Alexandre Chenal, Ariles Dadi et Léo Vang**.
+
+Le travail a porté sur la préparation des données, la modélisation du réseau, les cartes interactives et le scénario de raccordement électrique. Le suivi des tâches et des échéances s’appuyait sur un tableau Kanban et un diagramme de Gantt dans GitHub.
