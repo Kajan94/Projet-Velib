@@ -41,6 +41,19 @@ Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
 
 Les deux fichiers JSON dérivés sont déjà fournis. Ils peuvent être régénérés avec `python code.py` puis `python coordonnés.py`. Les cartes colorent des rapports entre capacité et nombre de voisins géométriques. Cette mesure ne représente pas la fréquentation réelle.
 
+## Organisation du code
+
+| Chemin | Rôle |
+| --- | --- |
+| `station_information.json` | Instantané source des informations des stations Vélib’. |
+| `code.py` et `coordonnés.py` | Extraction des informations utiles et des coordonnées depuis l’instantané source. |
+| `velib_stations.json` et `velib_coordonnées.json` | Données préparées pour les calculs et la génération des cartes. |
+| `analyser_stations.py` | Contrôle des identifiants, coordonnées et capacités des stations. |
+| `carte.py` | Génération de la carte de Delaunay et de l’arbre couvrant minimum. |
+| `carte_voronoi` | Génération de la carte des cellules de Voronoï et des calques du réseau. |
+| `triangles.py` et `Liste_adjacence` | Scripts d’étude de la triangulation et des voisinages entre stations. |
+| `velib_stations_map.html` et `velib_stations_voronoi.html` | Cartes générées, consultables directement dans le navigateur. |
+
 Source de l’instantané du 20 janvier 2025 : [données ouvertes Vélib’ Métropole](https://www.data.gouv.fr/datasets/velib-localisation-et-caracteristique-des-stations). Fond de carte : [contributeurs OpenStreetMap](https://www.openstreetmap.org/copyright).
 
 [Projet dans le portfolio](https://kajan94.github.io/Portefolio/#velib)
