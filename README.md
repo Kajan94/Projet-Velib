@@ -20,7 +20,7 @@ Les liaisons noires relient les stations sans former de cycle. Elles sont sélec
 
 ### Zones de proximité
 
-[![Cellules de Voronoï associées aux stations Vélib’](docs/voronoi-velib.jpg)](docs/voronoi-velib.jpg)
+[![Cellules de Voronoï associées aux stations Vélib’](https://github.com/user-attachments/assets/48044b91-5981-405c-989a-63a8b22463f0)](https://github.com/user-attachments/assets/48044b91-5981-405c-989a-63a8b22463f0)
 
 Chaque cellule de Voronoï représente une zone de proximité autour d’une station. Les calques permettent de la comparer avec les stations, les triangles de Delaunay et l’arbre couvrant.
 
