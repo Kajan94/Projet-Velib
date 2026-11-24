@@ -14,7 +14,7 @@ Les points représentent les stations et les lignes vertes leurs voisinages obte
 
 ### Arbre couvrant minimum
 
-[![Arbre couvrant minimum des stations Vélib’ avec le calque Kruskal activé](docs/docs/arbre-couvrant-velib.png)](docs/docs/arbre-couvrant-velib.png)
+[![Arbre couvrant minimum des stations Vélib’ avec le calque Kruskal activé](docs/arbre-couvrant-velib.png)](docs/arbre-couvrant-velib.png)
 
 Les liaisons noires relient les stations sans former de cycle. Elles sont sélectionnées avec l’algorithme de Kruskal pour étudier le scénario de raccordement du réseau.
 
