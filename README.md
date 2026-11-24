@@ -1,4 +1,4 @@
-# Vélib’ · Explorer les stations et modéliser leur raccordement
+# Vélib’ · Cartographie et analyse de la répartition des stations.
 
 Cette application a pour objectif d’étudier la répartition des stations Vélib’ dans Paris et les communes voisines, afin de repérer les secteurs où l’ajout de stations pourrait être envisagé. Les cartes interactives permettent de visualiser les emplacements, les capacités et les liens de voisinage des stations, ainsi que d’explorer un scénario de raccordement électrique à l’aide d’un arbre couvrant minimum.
 
