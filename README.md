@@ -8,7 +8,7 @@ Ce projet s’appuie également sur les notions étudiées dans nos matières de
 
 ### Réseau de stations
 
-[![Carte des stations Vélib’ et de leurs liens de voisinage](docs/delaunay-velib.jpg)](docs/delaunay-velib.jpg)
+[![Carte des stations Vélib’ et de leurs liens de voisinage](docs/reseau-stations-velib.png)](docs/reseau-stations-velib.png)
 
 Les points représentent les stations et les lignes vertes leurs voisinages obtenus par triangulation de Delaunay. Les couleurs des stations correspondent au rapport entre leur capacité et leur nombre de voisines.
 
