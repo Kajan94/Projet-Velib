@@ -73,6 +73,6 @@ Source de l’instantané du 20 janvier 2025 : [données ouvertes Vélib’ Mét
 
 ## Travail en équipe
 
-Projet universitaire réalisé à quatre en **première année de BUT Informatique** à l’IUT de Créteil-Vitry (UPEC), avec **Kajan Arulnathan, Alexandre Chenal, Ariles Dadi et Léo Vang**.
+Projet universitaire réalisé à quatre en **première année de BUT Informatique** à l’IUT de Créteil-Vitry (UPEC).
 
 Le travail a porté sur la préparation des données, la modélisation du réseau, les cartes interactives et le scénario de raccordement électrique. Le suivi des tâches et des échéances s’appuyait sur un tableau Kanban et un diagramme de Gantt dans GitHub.
