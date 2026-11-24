@@ -44,7 +44,6 @@ Bibliothèques présentes dans `requirements.txt` :
 - **Folium 0.20.0** : création des cartes interactives.
 - **NumPy 2.5.4** : manipulation des coordonnées et calculs numériques.
 - **SciPy 1.18.1** : triangulation de Delaunay et diagrammes de Voronoï.
-- **Matplotlib 3.11.2** : affichage de la triangulation avec le script `triangles.py`.
 
 Installer les bibliothèques, puis générer les deux cartes :
 
@@ -76,21 +75,6 @@ python coordonnés.py
 
 Le premier script extrait les identifiants, noms, capacités et coordonnées des stations. Le second conserve les identifiants et coordonnées utilisés pour les calculs géométriques.
 
-### Analyser les stations
-
-~~~sh
-python analyser_stations.py
-~~~
-
-Ce script utilise uniquement la bibliothèque standard Python. Il vérifie les identifiants, les coordonnées et les capacités, puis affiche les statistiques de l’instantané : **1 473 stations**, **46 036 places** et une **capacité médiane de 29**.
-
-Pour afficher séparément la triangulation ou la liste des stations voisines :
-
-~~~sh
-python triangles.py
-python Liste_adjacence
-~~~
-
 ## Organisation du code
 
 | Chemin | Rôle |
@@ -98,10 +82,8 @@ python Liste_adjacence
 | `station_information.json` | Instantané source des informations des stations Vélib’. |
 | `code.py` et `coordonnés.py` | Extraction des informations utiles et des coordonnées depuis l’instantané source. |
 | `velib_stations.json` et `velib_coordonnées.json` | Données préparées pour les calculs et la génération des cartes. |
-| `analyser_stations.py` | Contrôle des identifiants, coordonnées et capacités des stations. |
 | `carte.py` | Génération de la carte de Delaunay et de l’arbre couvrant minimum. |
 | `carte_voronoi` | Génération de la carte des cellules de Voronoï et des calques du réseau. |
-| `triangles.py` et `Liste_adjacence` | Scripts d’étude de la triangulation et des voisinages entre stations. |
 | `velib_stations_map.html` et `velib_stations_voronoi.html` | Cartes générées, consultables directement dans le navigateur. |
 | `docs/` | Aperçus des cartes et de l’arbre couvrant. |
 
