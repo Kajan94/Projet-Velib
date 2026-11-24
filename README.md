@@ -33,7 +33,7 @@ Les cartes déjà générées s’ouvrent directement dans le navigateur :
 - [Carte du réseau et arbre couvrant](https://kajan94.github.io/Projet-Velib/velib_stations_map.html).
 - [Carte des zones de Voronoï](https://kajan94.github.io/Projet-Velib/velib_stations_voronoi.html).
 
-Après téléchargement, ouvrir les fichiers `velib_stations_map.html` et `velib_stations_voronoi.html` pour les consulter localement. Une connexion Internet charge le fond de carte et les bibliothèques JavaScript. Aucun compte ni serveur de base de données n’est nécessaire.
+Après téléchargement, ouvrir les fichiers `velib_stations_map.html` et `velib_stations_voronoi.html` pour les consulter localement. Une connexion Internet charge le fond de carte et les bibliothèques JavaScript.
 
 ## Fonctionnalités
 
