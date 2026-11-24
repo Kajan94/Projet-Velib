@@ -35,18 +35,6 @@ Les cartes déjà générées s’ouvrent directement dans le navigateur :
 
 Après téléchargement, ouvrir les fichiers `velib_stations_map.html` et `velib_stations_voronoi.html` pour les consulter localement. Une connexion Internet charge le fond de carte et les bibliothèques JavaScript. Aucun compte ni serveur de base de données n’est nécessaire.
 
-### Régénérer les cartes avec Python
-
-Installer les bibliothèques, puis générer les deux cartes :
-
-~~~sh
-python -m pip install -r requirements.txt
-python carte.py
-python carte_voronoi
-~~~
-
-Les scripts enregistrent les cartes dans les deux fichiers HTML du dépôt. Sur macOS ou Linux, utiliser `python3` à la place de `python` si nécessaire.
-
 ## Fonctionnalités
 
 - **Navigation sur les cartes** : zoomer sur une zone et activer ou masquer les calques pour comparer les représentations du réseau.
