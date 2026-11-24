@@ -37,14 +37,6 @@ Après téléchargement, ouvrir les fichiers `velib_stations_map.html` et `velib
 
 ### Régénérer les cartes avec Python
 
-Préparer **Python 3.12 avec pip**, puis ouvrir un terminal à la racine du dépôt.
-
-Bibliothèques présentes dans `requirements.txt` :
-
-- **Folium 0.20.0** : création des cartes interactives.
-- **NumPy 2.5.4** : manipulation des coordonnées et calculs numériques.
-- **SciPy 1.18.1** : triangulation de Delaunay et diagrammes de Voronoï.
-
 Installer les bibliothèques, puis générer les deux cartes :
 
 ~~~sh
@@ -87,7 +79,7 @@ Le premier script extrait les identifiants, noms, capacités et coordonnées des
 | `velib_stations_map.html` et `velib_stations_voronoi.html` | Cartes générées, consultables directement dans le navigateur. |
 | `docs/` | Aperçus des cartes et de l’arbre couvrant. |
 
-Source de l’instantané du 20 janvier 2025 : [données ouvertes Vélib’ Métropole](https://www.data.gouv.fr/datasets/velib-localisation-et-caracteristique-des-stations). Fond de carte : [contributeurs OpenStreetMap](https://www.openstreetmap.org/copyright).
+Source de l’instantané du 20 janvier 2025 : [données ouvertes Vélib’ Métropole](https://www.data.gouv.fr/datasets/velib-localisation-et-caracteristique-des-stations). 
 
 [Projet dans le portfolio](https://kajan94.github.io/Portefolio/#velib)
 
